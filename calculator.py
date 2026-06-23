@@ -1,4 +1,4 @@
-import streamlit as st
+
 def add(n1,n2):
     return n1 + n2
 
@@ -19,24 +19,24 @@ operations = {
 }
 
 def calculator():
-   st.write("Welcome to the calculator!")
+   print("Welcome to the calculator!")
    should_continue = True
-   n1 = st.number_input("Enter the first number: ")
+   n1 = float(input("Enter the first number: "))
    while should_continue:
        for operator in operations:
-          st.write(operator)
-       operator = st.text_input("Enter an operator: ")
-       n2 = st.number_input("Enter the next number: ")
+          print(operator)
+       operator = input("Enter an operator: ")
+       n2 = float(input("Enter the next number: "))
        result = operations[operator](n1, n2)
-       st.write(f"{n1} {operator} {n2} = {result}")
+       print(f"{n1} {operator} {n2} = {result}")
 
-       choice= st.text_input("Type 'y' to continue calculating with the result, or type 'n' to exit: ")
+       choice= input("Type 'y' to continue calculating with the result, or type 'n' to exit: ")
 
        if choice == 'y':
          n1 = result
        else:
          should_continue = False
-         st.write("\n" * 20)
+         print("\n" * 20)
 calculator()
 
        
